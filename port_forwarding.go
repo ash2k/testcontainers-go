@@ -265,7 +265,7 @@ func (sshdC *sshdContainer) exposeHostPort(ctx context.Context, ports ...int) (e
 		}
 	}()
 	for _, port := range ports {
-		pf, err := newPortForwarder(ctx, "localhost:"+sshdC.port, sshdC.sshConfig, port)
+		pf, err := newPortForwarder(ctx, "127.0.0.1:"+sshdC.port, sshdC.sshConfig, port)
 		if err != nil {
 			return fmt.Errorf("new port forwarder: %w", err)
 		}
